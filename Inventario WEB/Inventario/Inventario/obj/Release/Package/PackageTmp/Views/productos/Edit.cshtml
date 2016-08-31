@@ -1,0 +1,202 @@
+﻿@model Inventario.Models.productos
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Editar</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Producto</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.productosID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.codigo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div id="divNombreNombre">
+                    <div id="divMensaje">
+                        @Html.EditorFor(model => model.codigo, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+
+                        <div id="mensaje" class="alert alert-danger hidden">
+                            <strong>Error: </strong>ya existe un producto con ese codigo
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.codigoBarra, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div id="divNombreNombre2">
+                    <div id="divMensaje2">
+                        @Html.EditorFor(model => model.codigoBarra, new { htmlAttributes = new { @class = "form-control" } })
+
+                        <div id="mensaje2" class="alert alert-danger hidden">
+                            <strong>Error: </strong>ya existe otro producto con ese codigo de proveedor
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.codigoBarraInterno, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div id="divNombreNombre3">
+                    <div id="divMensaje3">
+                        @Html.EditorFor(model => model.codigoBarraInterno, new { htmlAttributes = new { @class = "form-control" } })
+
+                        <div id="mensaje3" class="alert alert-danger hidden">
+                            <strong>Error: </strong>ya existe otro producto con ese codigo de interno
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Volver a productos", "Index")
+</div>
+
+@section Scripts {
+  <script>
+      $(document).ready(function () {
+                       
+          $("#codigo").change(function () {
+              var Codigo = $("#codigo").val();
+
+              $.ajax({
+                  url: "/productos/verificarCodigo",
+                  data: { "valor_codigo": Codigo },
+                  success: function (retorno) {
+
+                      console.log("¿Existe codigo? " + retorno);
+
+                      if (retorno == "true") {
+                          $('input[type="submit"]').prop('disabled', true);
+                          $("#divMensaje").addClass(" has-error");
+                          $("#divMensaje").addClass(" has-feedback");
+                          $("#divMensaje").removeClass(" has-success");
+
+                          $("#spanInput").addClass("glyphicon-remove");
+                          $("#spanInput").removeClass("glyphicon-ok");
+
+                          $("#mensaje").removeClass("hidden");
+                                       
+                      }
+                      else {
+
+                          $('input[type="submit"]').prop('disabled', false);
+                          $("#divMensaje").addClass(" has-feedback");
+                          $("#divMensaje").removeClass(" has-error");
+                          $("#divMensaje").addClass(" has-success");
+                          $("#spanInput").addClass("glyphicon-ok");
+                          $("#spanInput").removeClass("glyphicon-remove");
+
+                          $("#mensaje").addClass("hidden");
+                      }
+                  }
+              });
+          });
+          $("#codigoBarra").change(function () {
+              var CodigoProveedor = $("#codigoBarra").val();
+
+              $.ajax({
+                  url: "/productos/verificarCodigoProveedor",
+                  data: { "valor_proveedor": CodigoProveedor },
+                  success: function (retorno) {
+
+                      console.log("¿Existe codigo proveedor? " + retorno);
+
+                      if (retorno == "true") {
+                          $('input[type="submit"]').prop('disabled', true);
+                          $("#divMensaje2").addClass(" has-error");
+                          $("#divMensaje2").addClass(" has-feedback");
+                          $("#divMensaje").removeClass(" has-success");
+
+                          $("#spanInput2").addClass("glyphicon-remove");
+                          $("#spanInput2").removeClass("glyphicon-ok");
+
+                          $("#mensaje2").removeClass("hidden");
+
+                      }
+                      else {
+
+                          $('input[type="submit"]').prop('disabled', false);
+                          $("#divMensaje2").addClass(" has-feedback");
+                          $("#divMensaje2").removeClass(" has-error");
+                          $("#divMensaje2").addClass(" has-success");
+                          $("#spanInput").addClass("glyphicon-ok");
+                          $("#spanInput").removeClass("glyphicon-remove");
+
+                          $("#mensaje2").addClass("hidden");
+                      }
+                  }
+              });
+
+          });
+          $("#codigoBarraInterno").change(function () {
+              var CodigoInterno = $("#codigoBarraInterno").val();
+
+              $.ajax({
+                  url: "/productos/verificarCodigoInterno",
+                  data: { "valor_interno": CodigoInterno },
+                  success: function (retorno) {
+
+                      console.log("¿Existe codigo? " + retorno);
+
+                      if (retorno == "true") {
+                          $('input[type="submit"]').prop('disabled', true);
+                          $("#divMensaje3").addClass(" has-error");
+                          $("#divMensaje3").addClass(" has-feedback");
+                          $("#divMensaje3").removeClass(" has-success");
+
+                          $("#spanInput3").addClass("glyphicon-remove");
+                          $("#spanInput3").removeClass("glyphicon-ok");
+
+                          $("#mensaje3").removeClass("hidden");
+
+                      }
+                      else {
+
+                          $('input[type="submit"]').prop('disabled', false);
+                          $("#divMensaje3").addClass(" has-feedback");
+                          $("#divMensaje3").removeClass(" has-error");
+                          $("#divMensaje3").addClass(" has-success");
+                          $("#spanInput3").addClass("glyphicon-ok");
+                          $("#spanInput3").removeClass("glyphicon-remove");
+
+                          $("#mensaje3").addClass("hidden");
+                      }
+                  }
+              });
+          });
+
+/*-------------------------------*/
+      });
+  </script> 
+}

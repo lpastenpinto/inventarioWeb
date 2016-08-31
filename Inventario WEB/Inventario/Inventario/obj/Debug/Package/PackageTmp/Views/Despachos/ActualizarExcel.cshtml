@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "Actualizar Despachos con Archivos Excel";
+}
+
+<div class="page-header">
+    <h2>Actualizar Despachos con Archivos Excel</h2>
+</div>
+
+<div class="col-md-12">
+    <h4>Formato de Archivo Excel</h4>
+    <p>Por favor, ingrese un archivo con el formato mostrado en la imagen (presione la imagen para abrirla en una nueva pestaña):</p>
+    <a target="_blank" href="/Content/FormatosExcel/despachos.png">
+        <img style="border-style: solid; border-width: 2px 2px 2px 2px !important"
+             src="~/Content/FormatosExcel/despachos.png" alt="Imagen no encontrada"
+             class="img-responsive" />
+    </a>
+    
+</div>
+
+<div class="clearfix"></div>
+<br />
+<hr />
+<br />
+<div class="col-md-6">
+    @using (Html.BeginForm("ActualizarExcel", "Despachos", FormMethod.Post, new { enctype = "multipart/form-data", Id = "formulario" }))
+    {
+        @Html.AntiForgeryToken()
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Archivo:</label>
+            <input type="file" class="filestyle" id="archivo" name="UploadedFile" data-buttontext="Seleccionar Archivo" />
+        </div>
+        <hr>
+        <div class="">
+            <input type="submit" id="submit" name="Submit" value="Subir Archivo" class="btn btn-primary" disabled />
+        </div>
+    }
+
+</div>
+<div class="clearfix"></div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function ()
+        {
+
+            $("#archivo").change(function () {
+                $("#submit").attr("disabled", true);
+
+                var data = new FormData();
+                data.append('file-0', $("#archivo")[0].files[0]);
+
+                jQuery.ajax({
+                    url: '/Despachos/verificarExcel',
+                    data: data,
+                    async: false,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    type: 'POST',
+                    success: function (data) {
+                        if (data == "true") {
+                            $("#submit").removeAttr("disabled");
+                        }
+                        else {
+                            alert('El archivo que intenta subir no posee el formato indicado. Verifique que el archivo posea la misma cantidad de columnas y que los campos numéricos contienen solo números');
+                            console.log(data);
+                            $("#submit").attr("disabled", true);
+                        }
+                    }
+                });
+            });
+
+            /*$("#formulario").submit(function (event) {
+
+                var blanks = $('form').find('select,input:not(:button)').filter(function () {
+                    return ($(this).val() == '');
+                });
+                if (blanks && blanks.length > 0) {
+                    alert("Debe ingresar un archivo Excel con el formato indicado");
+                    $("#submit").removeAttr("disabled");
+                    return false;
+                }
+                else
+                {
+
+                    $("#submit").removeAttr("disabled");
+                    return false;
+                }
+            });//*/
+        });
+    </script>
+}

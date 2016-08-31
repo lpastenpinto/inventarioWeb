@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@if (Inventario.Models.productos.existenAlertas())
+{
+    <div class="alert alert-warning alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+            &times;
+        </button>
+
+        <a href="@Url.Action("Alertas", "Productos")">Hay @Inventario.Models.productos.cantidadAlertas() alerta/s de Inventario</a>
+    </div>
+}
+<div class="col-md-12">
+    <div class="page-header">
+        <div class="col-sm-12"><h2>Demo de Sistema para Control de Inventario </h2></div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<a href="@Url.Action("ActualizarExcel", "Bodegas")">Actualizar Stock de Productos con Archivo Excel</a>
+<br />
+<a  href="@Url.Action("ActualizarExcel", "productos")">Ingresar Maestro de Productos con Archivo Excel</a>
+<br />
+<a href="@Url.Action("ActualizarExcel", "Despachos")">Ingresar/Actualizar Despachos con Archivo Excel</a>
+<br />
+<br />
+<div class="jumbotron">
+    <div class="col-sm-4">
+        <br />
+        <img src="~/Content/logo.jpg" alt="puntodesarrollo ltda" class="img-circle img-circle" width="80%" />
+    </div>
+    <div class="col-sm-8">
+        <h1><small>Desarrollado por puntodesarrollo ltda</small></h1>
+        <p class="lead">Somos una empresa desarrolladora de software especializada e crear aplicaciones a la medida de cada problema. Nos encargamos de entender el proceso de trabajo de cada cliente para crear herramientas que se ajusten en la mejor forma posible a sus necesidades.</p>
+        <p>Contáctanos al +56979302845 o al correo electrónico puntodesarrollo@gmail.com</p>
+    </div>
+    <div class="clearfix"></div>
+</div>
+

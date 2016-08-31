@@ -1,0 +1,40 @@
+﻿@model Inventario.Models.sectores
+
+@{
+    ViewBag.Title = "Eliminar Sector";
+}
+
+<h2>Eliminar Sector</h2>
+
+<h3>¿Está seguro de eliminar el sector?</h3>
+<div>
+    <h4>Datos:</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BodegaID)
+        </dt>
+
+        <dd>
+            @(new Inventario.DAL.Context().Bodegas.Find(Model.BodegaID).nombre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a href="@Url.Action("Sectores", "Bodegas", new { id=Model.BodegaID })">Volver</a>
+    </div>
+    }
+</div>

@@ -1,0 +1,46 @@
+﻿@model Inventario.Models.sectores
+
+@{
+    ViewBag.Title = "Crear Sector";
+}
+
+<h2>Crear Sector</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Datos:</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <input type="text" name="sectoresID" value="@Model.sectoresID"  hidden/>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Bodega</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BodegaID, new { htmlAttributes = new { @class = "form-control hidden", @Value = Model.BodegaID} })
+                <input type="text" name="nombreBodega" value="@(new Inventario.DAL.Context().Bodegas.Find(Model.BodegaID).nombre)" class="form-control" readonly />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Nombre</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

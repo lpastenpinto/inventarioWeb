@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Demo Inventario</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Styles.Render("~/bundles/sticky-footer")
+        @RenderSection("scripts", required: false)
+        @*@Styles.Render("~/Content/bootstrap-datetimepicker.css")*@
+        @Scripts.Render("~/Scripts/datetimepicker/moment.js")
+        @Scripts.Render("~/Scripts/datetimepicker/bootstrap-datetimepicker.js")
+        <link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+        <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
+        <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/bootstrap-filestyle-1.2.1/src/bootstrap-filestyle.min.js"> </script>
+
+    <script>
+    $(document).ready(function () {
+
+        console.log("Ready");
+
+        $('form').submit(function () {
+            console.log("Deshabilitar botón");
+            $("button").each(function () {
+                console.log("botón detectado");
+                $(this).attr('disabled', true);
+            });
+        });
+
+        $(".fecha").datetimepicker({
+            viewMode: 'days',
+            format: 'DD/MM/YYYY'
+        });
+
+        $(".select2").select2({
+            placeholder: "Seleccione una opción"
+        });
+
+        $('form').submit(function () {
+            console.log("Deshabilitar botón");
+            $("button").each(function () {
+                console.log("botón detectado");
+                $(this).attr('disabled', true);
+            });
+        });
+
+        //$('.double').bind('keypress', function (event) {
+        $('body').on('keypress', '.double', function (e) {
+            var regex = new RegExp("^([0-9]*.[0-9]*)$");
+            var textoActual = $(this).val();
+            var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+            if (!regex.test(key)) {
+                event.preventDefault();
+                return false;
+            }
+            else if (!($.isNumeric(key)) && key == '.' && textoActual.indexOf(".") >= 0) {
+                event.preventDefault();
+                return false;
+            }
+        });
+
+        $('body').on('keypress', '.numero', function (e) {
+            //$('.numero').bind('keypress', function (event) {
+            var regex = new RegExp("^([0-9]*)$");
+            var textoActual = $(this).val();
+            var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+            if (!regex.test(key)) {
+                event.preventDefault();
+                return false;
+            }
+        });
+
+        //$('.numero').change(function (event) {
+        $('body').on('change', '.numero', function (e) {
+            $(this).val($(this).val().replace(/\D/g, ''));
+        });
+
+    });
+    </script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Demo Inventario", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Productos", "Index", "Productos")</li>
+                    <li>@Html.ActionLink("Ingresos", "Index", "Ingresos")</li>
+                    <li>@Html.ActionLink("Salidas", "Index", "Salidas")</li>
+                    <li>@Html.ActionLink("Despachos", "Index", "Despachos")</li>
+                    <li>@Html.ActionLink("Clientes", "Index", "Clientes")</li>
+                    <li>@Html.ActionLink("Bodegas", "Index", "Bodegas")</li>
+                    <li>@Html.ActionLink("Reporte", "ReporteIngresosSalidas", "Productos")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer class="footer">
+            <p>&copy; @DateTime.Now.Year - <a target="_blank" href="http://www.puntodesarrollo.com">puntodesarrollo ltda</a></p>
+        </footer>
+    </div>
+</body>
+</html>

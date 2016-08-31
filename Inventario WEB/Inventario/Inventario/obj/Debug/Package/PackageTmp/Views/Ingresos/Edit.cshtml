@@ -1,0 +1,78 @@
+﻿@model Inventario.Models.Ingresos
+
+@{
+    ViewBag.Title = "Edit";
+    
+    Inventario.Models.Ingresos esteIngreso = new Inventario.DAL.Context().Ingresos.Find(Model.IngresosID);
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Ingresos</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.IngresosID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.productosID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" class="form-control hidden" id="productosID" name="productosID" value="@Model.productosID" readonly>
+                <input type="text" class="form-control" value="@(new Inventario.DAL.Context().productos.Find(Model.productosID).descripcion)" readonly>
+                @Html.ValidationMessageFor(model => model.productosID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.cantidad, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.cantidad, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.cantidad, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.fecha, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input class="form-control fecha" id="fecha" name="fecha" data-val-date="The field fecha must be a date." data-val-required="El campo fecha es obligatorio."
+                       data-date-format="DD/MM/YYYY" pattern="[0-9][0-9]/[0-9][0-9]/[0-9][0-9][0-9][0-9]"
+                       type="text" value="@Inventario.Models.Helpers.mostrarFecha(Model.fecha)" required">
+                @Html.ValidationMessageFor(model => model.fecha, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+    $(document).ready(function () {
+        $(".fecha").datetimepicker({
+            viewMode: 'days',
+            format: 'DD/MM/YYYY'
+        });
+
+        $(".select2").select2({
+            placeholder: "Seleccione un producto"
+        });
+
+    });
+    </script>
+
+}

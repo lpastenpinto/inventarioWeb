@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Upload";
+}
+
+<h2>Upload</h2>
+
+
+@if (ViewBag.Users != null)
+{
+    <table class="table table-condensed table-striped">
+        @foreach (Inventario.Models.Users usuario in ViewBag.Users)
+        {
+            <tr>
+                <td>@usuario.a</td>
+                <td>@usuario.b</td>
+                <td>@usuario.c</td>
+                <td>@usuario.d</td>
+                <td>@usuario.e</td>
+            </tr>
+        }
+    </table>
+}

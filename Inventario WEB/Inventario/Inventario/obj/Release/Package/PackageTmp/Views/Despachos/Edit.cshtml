@@ -1,0 +1,291 @@
+﻿@model Inventario.Models.Despacho
+
+@{
+    ViewBag.Title = "Editar Despacho";
+}
+
+<h2>Editar Despacho</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Datos:</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.DespachoID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NombreDocumento, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.NombreDocumento, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NombreDocumento, "", new { @class = "text-danger" })
+            </div>
+        
+            @Html.LabelFor(model => model.NumeroDocumento, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.NumeroDocumento, new { htmlAttributes = new { @class = "form-control  numero" } })
+                @Html.ValidationMessageFor(model => model.NumeroDocumento, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ClienteID, "ClienteID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.DropDownList("ClienteID", new SelectList(new Inventario.DAL.Context().Clientes, "ClienteID", "nombreCliente"), htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ClienteID, "", new { @class = "text-danger" })
+            </div>
+
+            @Html.LabelFor(model => model.DireccionDespacho, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.DireccionDespacho, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DireccionDespacho, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BodegaID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.DropDownList("BodegaID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.BodegaID, "", new { @class = "text-danger" })
+            </div>
+
+            @Html.LabelFor(model => model.Fecha, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                <input class="form-control fecha" id="Fecha" name="Fecha" data-val-date="The field fecha must be a date." data-val-required="El campo fecha es obligatorio."
+                       data-date-format="DD/MM/YYYY" pattern="[0-9][0-9]/[0-9][0-9]/[0-9][0-9][0-9][0-9]"
+                       type="text" value="@Inventario.Models.Helpers.mostrarFecha(Model.Fecha)" required">
+                @Html.ValidationMessageFor(model => model.Fecha, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BodegaOrigen, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.BodegaOrigen, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BodegaOrigen, "", new { @class = "text-danger" })
+            </div>
+        
+            @Html.LabelFor(model => model.Linea, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Linea, new { htmlAttributes = new { @class = "form-control numero" } })
+                @Html.ValidationMessageFor(model => model.Linea, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select id="Status" name="Status" class="form-control">
+                    <option value="CARGADO">CARGADO</option>
+                    @if (Model.Status.Equals("EN PROCESO"))
+                    {
+                        <option value="EN PROCESO" selected>EN PROCESO</option>
+                    }
+                    else
+                    {
+                        <option value="EN PROCESO">EN PROCESO</option>
+                    }
+                    @if (Model.Status.Equals("TRANSITO"))
+                    {
+                        <option value="TRANSITO" selected>TRANSITO</option>
+                    }
+                    else
+                    {
+                        <option value="TRANSITO">TRANSITO</option>
+                    }
+                    @if (Model.Status.Equals("FINALIZADO"))
+                    {
+                        <option value="FINALIZADO" selected>FINALIZADO</option>
+                    }
+                    else
+                    {
+                        <option value="FINALIZADO">FINALIZADO</option>
+                    }
+                    @if (Model.Status.Equals("RETIRA CLIENTE"))
+                    {
+                        <option value="RETIRA CLIENTE" selected>RETIRA CLIENTE</option>
+                    }
+                    else
+                    {
+                        <option value="RETIRA CLIENTE">RETIRA CLIENTE</option>
+                    }
+
+                </select>
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+        <hr />
+
+        <h4>Detalle de Despacho:</h4>
+
+        <div class="table-responsive">
+            <table class="table table-condensed table-striped table-bordered" id="tabla">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio Unitario</th>
+                        <th>Costo Vigente</th>
+                        <th>Total Costo Línea</th>
+                        <th class="text-center">Eliminar</th>
+                    </tr>
+                </thead>
+                @{
+                    List<Inventario.Models.productos> productos = new Inventario.DAL.Context().productos.ToList();
+                    List<Inventario.Models.DetalleDespacho> Detalle = ViewBag.DetalleDespacho;
+                }
+                <tbody>
+                    @if (Detalle.Count == 0) { 
+                    <tr class="datoTabla">
+                        <td class="hidden"><input type="text" name="ID" id="ID" value="-1" readonly /></td>
+                        <td>
+                            <select type="text" class="form-control" name="producto" id="producto">
+                                @foreach (Inventario.Models.productos PRODUCTO in productos)
+                                {
+                                    <option value="@PRODUCTO.productosID">@PRODUCTO.codigo - @PRODUCTO.descripcion</option>
+                                }
+                            </select>
+                        </td>
+                        <td><input type="text" name="cantidad" id="cantidad" class="form-control numero" required /></td>
+                        <td><input type="text" name="precioUnitario" id="precioUnitario" class="form-control double" required /></td>
+                        <td><input type="text" name="costoVigente" id="costoVigente" class="form-control double" required /></td>
+                        <td><input type="text" name="totalNetoLinea" id="totalNetoLinea" class="form-control double" required /></td>
+                        <td class="text-center">
+                            <a href="#tabla" id="eliminarItem"><span class="glyphicon glyphicon-remove-circle text-danger" aria-hidden="true"></span></a>
+                        </td>
+                    </tr>
+                    }
+                    else
+                    {
+                        foreach (Inventario.Models.DetalleDespacho item in Detalle)
+                        {
+                            <tr class="datoTabla">
+                                <td class="hidden"><input type="text" name="ID" id="ID" value="@item.DetalleDespachoID" readonly /></td>
+                                <td>
+                                    <select type="text" class="form-control" name="producto" id="producto">
+                                        @foreach (Inventario.Models.productos PRODUCTO in productos)
+                                        {
+                                            if (item.productosID == PRODUCTO.productosID)
+                                            {
+                                                <option value="@PRODUCTO.productosID" selected>@PRODUCTO.codigo - @PRODUCTO.descripcion</option>
+                                            }
+                                            else
+                                            {
+                                                <option value="@PRODUCTO.productosID">@PRODUCTO.codigo - @PRODUCTO.descripcion</option>
+                                            }
+                                        }
+                                    </select>
+                                </td>
+                                <td><input type="text" name="cantidad" id="cantidad" class="form-control numero" value="@item.Cantidad" required /></td>
+                                <td><input type="text" name="precioUnitario" id="precioUnitario" class="form-control double" value="@item.PrecioUnitario" required /></td>
+                                <td><input type="text" name="costoVigente" id="costoVigente" class="form-control double" value="@item.CostoVigente" required /></td>
+                                <td><input type="text" name="totalNetoLinea" id="totalNetoLinea" class="form-control double" value="@item.TotalNetoLinea" required /></td>
+                                <td class="text-center">
+                                    <a href="#tabla" id="eliminarItem"><span class="glyphicon glyphicon-remove-circle text-danger" aria-hidden="true"></span></a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+
+        </div>
+        <div class="col-md-3 col-md-offset-9">
+            <a href="#tabla" id="agregarItem" class="btn btn-block btn-info">Agregar Nuevo Producto</a>
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="modal-footer">
+            @Html.ActionLink("Volver", "Index") <input type="submit" value="Guardar" class="btn btn-primary btn-lg" id="enviar" />
+        </div>
+    </div>
+}
+
+
+@section Scripts{
+
+    <script>
+        $(document).ready(function ()
+        {
+            function verificarDatos()
+            {
+                numeroActual = @Model.NumeroDocumento;
+
+                console.log("aqui");
+
+                var numero = $("#NumeroDocumento").val();
+
+                $.ajax({
+                    url: "/Despachos/verificarNumeroDespacho",
+                    data: { "numero": numero },
+                    success: function (retorno) {
+
+                        console.log("¿Existe despacho? " + retorno);
+
+                        if (retorno == "true" && numero!=numeroActual) {
+                            $('input[type="submit"]').prop('disabled', true);
+                            $("#divMensaje").addClass(" has-error");
+                            $("#divMensaje").addClass(" has-feedback");
+                            $("#divMensaje").removeClass(" has-success");
+
+                            $("#spanInput").addClass("glyphicon-remove");
+                            $("#spanInput").removeClass("glyphicon-ok");
+
+                            $("#mensaje").removeClass("hidden");
+                        }
+                        else {
+
+                            $('input[type="submit"]').prop('disabled', false);
+                            $("#divMensaje").addClass(" has-feedback");
+                            $("#divMensaje").removeClass(" has-error");
+                            $("#divMensaje").addClass(" has-success");
+                            $("#spanInput").addClass("glyphicon-ok");
+                            $("#spanInput").removeClass("glyphicon-remove");
+
+                            $("#mensaje").addClass("hidden");
+                        }
+                    }
+                });
+            }
+
+            $("#NumeroDocumento").change(function () {
+                verificarDatos();
+            });
+
+
+            $("#agregarItem").click(function () {
+                fila = $("#tabla").find(".datoTabla:last");
+
+                nuevaFila = fila.clone();
+
+                nuevaFila.find("#ID").val("-1");
+
+                nuevaFila.find("#cantidad").val("");
+                nuevaFila.find("#precioUnitario").val("");
+                nuevaFila.find("#costoVigente").val("");
+                nuevaFila.find("#totalNetoLinea").val("");
+
+                newTR = nuevaFila;
+
+                fila.after(newTR);
+
+            });
+
+            $('body').on('click', '#eliminarItem', function (e) {
+
+                if ($("#tabla").find("tr").length <= 2) return;
+
+                tr = $(this).closest("tr");
+
+                tr.remove();
+
+            });
+
+        });
+    </script>
+
+}

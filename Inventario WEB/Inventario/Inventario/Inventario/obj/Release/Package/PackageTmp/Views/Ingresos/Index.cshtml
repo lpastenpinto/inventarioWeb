@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Inventario.Models.Ingresos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.productosID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th></th>
+    </tr>
+
+    @{
+        Inventario.DAL.Context db = new Inventario.DAL.Context();
+    }
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @db.productos.Find(item.productosID).descripcion
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad)
+        </td>
+        <td>
+            @Inventario.Models.Helpers.mostrarFecha(item.fecha)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IngresosID }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.IngresosID }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.IngresosID })
+        </td>
+    </tr>
+}
+
+</table>

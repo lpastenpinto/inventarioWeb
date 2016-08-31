@@ -1,0 +1,160 @@
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Inventario.dll.config
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Inventario.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Inventario.pdb
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Antlr3.Runtime.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\EntityFramework.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\EntityFramework.SqlServer.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\EPPlus.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Microsoft.Owin.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Microsoft.Owin.Security.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Microsoft.ReportViewer.Common.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Newtonsoft.Json.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Owin.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\System.Web.Helpers.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\System.Web.Mvc.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\System.Web.Optimization.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\System.Web.Razor.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\System.Web.WebPages.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\System.Web.WebPages.Razor.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\WebGrease.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\EntityFramework.xml
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\EntityFramework.SqlServer.xml
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\EPPlus.xml
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\System.Web.Helpers.xml
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\System.Web.Mvc.xml
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\System.Web.Optimization.xml
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\System.Web.Razor.xml
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\System.Web.WebPages.xml
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\System.Web.WebPages.Razor.xml
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Antlr3.Runtime.pdb
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Newtonsoft.Json.xml
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Microsoft.Owin.xml
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Microsoft.Owin.Security.xml
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\obj\Debug\Inventario.csprojResolveAssemblyReference.cache
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\obj\Debug\Inventario.Migrations.cambioProductos.resources
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\obj\Debug\Inventario.Migrations.ingresos.resources
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\obj\Debug\Inventario.Migrations.ingresosB.resources
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\obj\Debug\Inventario.Migrations.fecha_en_ingresos.resources
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\obj\Debug\Inventario.Migrations.productos_agregadaFechaeIDOP.resources
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\obj\Debug\Inventario.Migrations.bodegas_sectores.resources
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\obj\Debug\Inventario.Migrations.sectorID_enProductos.resources
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\obj\Debug\Inventario.Migrations.salidas.resources
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\obj\Debug\Inventario.Migrations.alertarStockBajo.resources
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\obj\Debug\Inventario.Migrations.producto_bodega.resources
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\obj\Debug\Inventario.Migrations.arregloproducto_bodega.resources
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\obj\Debug\Inventario.Migrations.arregloproductos.resources
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\obj\Debug\Inventario.csproj.GenerateResource.Cache
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\obj\Debug\RdlCompile.cache
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\obj\Debug\RdlCompile.compiled
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\obj\Debug\Inventario.dll
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\obj\Debug\Inventario.pdb
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\obj\Debug\Inventario.Migrations.costo_unitario_por_bodega.resources
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\obj\Debug\Inventario.Migrations.doublecantidad.resources
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\obj\Debug\Inventario.Migrations.asdf.resources
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\obj\Debug\Inventario.Migrations.foreingkeybodega.resources
+C:\Users\Norum26\Source\Workspaces\Workspace\RentaMaq\Inventario\Inventario\Inventario\obj\Debug\Inventario.Migrations.despachosyclientes.resources
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Inventario.dll.config
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Inventario.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Inventario.pdb
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Antlr3.Runtime.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\EntityFramework.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\EntityFramework.SqlServer.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\EPPlus.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Microsoft.Owin.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Microsoft.Owin.Security.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Microsoft.ReportViewer.Common.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Newtonsoft.Json.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Owin.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\System.Web.Helpers.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\System.Web.Mvc.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\System.Web.Optimization.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\System.Web.Razor.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\System.Web.WebPages.Deployment.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\System.Web.WebPages.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\System.Web.WebPages.Razor.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\WebGrease.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\EntityFramework.xml
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\EntityFramework.SqlServer.xml
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\EPPlus.xml
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\System.Web.Helpers.xml
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\System.Web.Mvc.xml
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\System.Web.Optimization.xml
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\System.Web.Razor.xml
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\System.Web.WebPages.xml
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\System.Web.WebPages.Deployment.xml
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\System.Web.WebPages.Razor.xml
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Antlr3.Runtime.pdb
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Newtonsoft.Json.xml
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Microsoft.Owin.xml
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Microsoft.Owin.Security.xml
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\obj\Debug\Inventario.csprojResolveAssemblyReference.cache
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\obj\Debug\Inventario.Migrations.cambioProductos.resources
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\obj\Debug\Inventario.Migrations.ingresos.resources
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\obj\Debug\Inventario.Migrations.ingresosB.resources
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\obj\Debug\Inventario.Migrations.fecha_en_ingresos.resources
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\obj\Debug\Inventario.Migrations.productos_agregadaFechaeIDOP.resources
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\obj\Debug\Inventario.Migrations.bodegas_sectores.resources
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\obj\Debug\Inventario.Migrations.sectorID_enProductos.resources
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\obj\Debug\Inventario.Migrations.salidas.resources
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\obj\Debug\Inventario.Migrations.alertarStockBajo.resources
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\obj\Debug\Inventario.Migrations.producto_bodega.resources
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\obj\Debug\Inventario.Migrations.arregloproducto_bodega.resources
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\obj\Debug\Inventario.Migrations.arregloproductos.resources
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\obj\Debug\Inventario.Migrations.costo_unitario_por_bodega.resources
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\obj\Debug\Inventario.Migrations.doublecantidad.resources
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\obj\Debug\Inventario.Migrations.asdf.resources
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\obj\Debug\Inventario.Migrations.foreingkeybodega.resources
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\obj\Debug\Inventario.Migrations.despachosyclientes.resources
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\obj\Debug\Inventario.csproj.GenerateResource.Cache
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\obj\Debug\RdlCompile.cache
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\obj\Debug\RdlCompile.compiled
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\obj\Debug\Inventario.dll
+C:\Users\LEO\Documents\Inventario WEB\Inventario\Inventario\obj\Debug\Inventario.pdb

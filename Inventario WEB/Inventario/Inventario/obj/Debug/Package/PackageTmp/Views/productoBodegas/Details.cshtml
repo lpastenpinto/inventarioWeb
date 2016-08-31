@@ -1,0 +1,92 @@
+﻿@model Inventario.Models.productoBodega
+
+@{
+    ViewBag.Title = "Detalles";
+
+    Inventario.DAL.Context db = new Inventario.DAL.Context();
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>productoBodega</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Bodega.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bodega.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.productos.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productos.codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SectorID)
+        </dt>
+
+        <dd>
+            @if(Model.SectorID!=0 && db.Sectores.Any(s=>s.sectoresID==Model.SectorID))
+            {
+                Inventario.Models.sectores Sector = db.Sectores.Where(s => s.sectoresID == Model.SectorID).ToList()[0];
+                <text>@Sector.nombre</text>
+            }
+            else
+            {
+                <text>-</text>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidadDisponible)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidadDisponible)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidadMinima)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidadMinima)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidadMaxima)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidadMaxima)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.costoUnitario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.costoUnitario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.alertarStockBajo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.alertarStockBajo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.productoBodegaID }) |
+    @Html.ActionLink("Volver", "Index")
+</p>

@@ -1,0 +1,48 @@
+﻿@model Inventario.Models.productos
+@{
+    ViewBag.Title = "Registro de Acciones a Producto";
+}
+
+<h2>Registro de Acciones realizadas al Producto <small>@Model.descripcion</small></h2>
+
+<div class="table-responsive">
+    <table class="table table-condensed table-hover table-striped">
+        <thead>
+            <tr>
+                <td>Fecha Registro</td>
+                <td>Tipo de Operación</td>
+                <td>ID de Operación</td>
+                <td>Cantidad</td>
+                <td>Cantidad previa</td>
+                <td>Cantidad Posterior</td>
+                <td>Ver Detalles</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Inventario.Models.registrosInventario Registro in new Inventario.DAL.Context().RegistrosInventario.Where(s=>s.productoID==Model.productosID))
+            {
+                <tr>
+                    <td>@Inventario.Models.Helpers.mostrarFecha(Registro.fechaRegistrado)</td>
+                    <td>@Registro.descripcion</td>
+                    <td>@Registro.idOperacion</td>
+                    <td>@(Registro.cantidadPosterior - Registro.cantidadPrevia)</td>
+                    <td>@Registro.cantidadPrevia</td>
+                    <td>@Registro.cantidadPosterior</td>
+                    @if ((Registro.descripcion.Equals("INGRESO") || Registro.descripcion.Equals("MODIFICACIÓN INGRESO")) && Inventario.Models.Ingresos.existe(Registro.idOperacion))
+                    {
+                        <td>
+                            <a href="@Url.Action("Details", "Ingresos", new { id=Registro.idOperacion})">Detalles</a>
+                        </td>
+                    }
+                    else if ((Registro.descripcion.Equals("SALIDA") || Registro.descripcion.Equals("MODIFICACIÓN SALIDA")) && Inventario.Models.Salidas.existe(Registro.idOperacion))
+                    {
+                        <td>
+                            <a href="@Url.Action("Details", "Salidas", new { id=Registro.idOperacion})">Detalles</a>
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

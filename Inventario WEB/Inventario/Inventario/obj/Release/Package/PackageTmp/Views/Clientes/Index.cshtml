@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Inventario.Models.Cliente>
+
+@{
+    ViewBag.Title = "Cliente";
+    Inventario.DAL.Context db = new Inventario.DAL.Context();
+}
+
+<h2>Cliente</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.codigoCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombreCliente)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.codigoCliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreCliente)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ClienteID }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.ClienteID }) 
+            @if(!db.Despachos.Any(s=>s.ClienteID==item.ClienteID)){
+                <text>
+                |
+                @Html.ActionLink("Eliminar", "Delete", new { id=item.ClienteID })
+                </text>
+            }
+        </td>
+    </tr>
+}
+
+</table>

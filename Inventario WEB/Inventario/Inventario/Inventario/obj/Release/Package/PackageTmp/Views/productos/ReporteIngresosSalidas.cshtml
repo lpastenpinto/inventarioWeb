@@ -1,0 +1,71 @@
+﻿@model List<Inventario.Models.reporteIngresosSalidas>
+
+@{
+    ViewBag.Title = "Reporte Ingresos Salidas";
+}
+
+
+<div class="col-md-4">
+    <h3>Reporte de Ingresos y Salidas de Productos</h3>
+</div>
+
+@{
+    string FECHA1 = "", FECHA2 = "";
+
+    DateTime Inicio = (DateTime)ViewBag.Inicio;
+    DateTime Termino = (DateTime)ViewBag.Termino;
+
+    FECHA1 = Inicio.Day + "/" + Inicio.Month + "/" + Inicio.Year;
+    FECHA2 = Termino.Day + "/" + Termino.Month + "/" + Termino.Year;
+}
+<div class="col-md-8">
+    <br />
+    <div class="col-md-12">
+        <h4><small>Filtro de fechas:</small></h4>
+    </div>
+    <div class="clearfix"></div>
+    <div class="col-md-4">
+        <input class="form-control fecha" id="fecha1" name="fecha1" data-val-date="Ingrese por favor una fecha." data-val-required="El campo fecha es obligatorio."
+               data-date-format="DD/MM/YYYY" pattern="[0-9][0-9]/[0-9][0-9]/[0-9][0-9][0-9][0-9]"
+               type="text" value="@FECHA1">
+
+    </div>
+    <div class="col-md-4">
+        <input class="form-control fecha" id="fecha2" name="fecha2" data-val-date="Ingrese por favor una fecha." data-val-required="El campo fecha es obligatorio."
+               data-date-format="DD/MM/YYYY" pattern="[0-9][0-9]/[0-9][0-9]/[0-9][0-9][0-9][0-9]"
+               type="text" value="@FECHA2">
+    </div>
+    <div class="col-md-4">
+        <input class="form-control" id="Boton" value="Buscar" type="button" />
+    </div>
+</div>
+<div class="clearfix"></div>
+<br />
+
+<div class="table-responsive">
+    <table class="table table-condensed table-hover table-striped">
+        <thead>
+            <tr>
+                <td>Producto</td>
+                <td>Fecha</td>
+                <td>Tipo Operación</td>
+                <td>Cantidad</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Inventario.Models.reporteIngresosSalidas Dato in Model)
+            {
+                <tr>
+                    <td>@Dato.Producto</td>
+                    <td>@Dato.Fecha</td>
+                    <td>@Dato.Tipo</td>
+                    <td>@Dato.Cantidad</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="modal-footer">
+    <a class="btn btn-primary btn-lg" target="_blank" href="@Url.Action("ReporteIngresosSalidas", "Report", new { inicio = Model[0].FechaInicio, termino = Model[0].FechaTermino })">Descargar Reporte</a>
+</div>
+

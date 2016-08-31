@@ -1,0 +1,131 @@
+﻿@model Inventario.Models.Despacho
+
+@{
+    ViewBag.Title = "Detalles";
+
+    Inventario.DAL.Context db = new Inventario.DAL.Context();
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Despacho</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Bodega.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bodega.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.codigoCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.codigoCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.nombreCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.nombreCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreDocumento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreDocumento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroDocumento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroDocumento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DireccionDespacho)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DireccionDespacho)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BodegaOrigen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BodegaOrigen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Linea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Linea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+    </dl>
+</div>
+<div class="table-responsive">
+    <table class="table table-condensed table-striped">
+        <thead>
+            <tr>
+                <th>Descripción Producto</th>
+                <th>Código</th>
+                <th>Código Barra</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>Costo Vigente</th>
+                <th>Total Costo Línea</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Inventario.Models.DetalleDespacho item in ViewBag.DetalleDespacho)
+            {
+                item.productos = db.productos.Find(item.productosID);
+                
+                <tr>
+                    <td>@item.productos.descripcion</td>
+                    <td>@item.productos.codigo</td>
+                    <td>@item.productos.codigoBarra</td>
+                    <td>@item.Cantidad</td>
+                    <td>@item.PrecioUnitario</td>
+                    <td>@item.CostoVigente</td>
+                    <td>@item.TotalNetoLinea</td>
+                </tr>
+            }            
+        </tbody>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.DespachoID }) |
+    @Html.ActionLink("Volver", "Index")
+</p>

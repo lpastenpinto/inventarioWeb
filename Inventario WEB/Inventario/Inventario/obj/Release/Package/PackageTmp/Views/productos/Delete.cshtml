@@ -1,0 +1,56 @@
+﻿@model Inventario.Models.productos
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar producto del sistema.</h2>
+
+<h3>estas seguro de eliminar este registro?</h3><br />
+<div>
+    <h4>Producto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.codigoBarra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigoBarra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.codigoBarraInterno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigoBarraInterno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Borrar" class="btn btn-default" /> |
+            @Html.ActionLink("Volver a productos", "Index")
+        </div>
+    }
+</div>

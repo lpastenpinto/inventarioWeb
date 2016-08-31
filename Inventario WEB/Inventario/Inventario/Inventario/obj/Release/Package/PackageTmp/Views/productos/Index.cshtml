@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Inventario.Models.productos>
+
+@{
+    ViewBag.Title = "Index";
+    Inventario.DAL.Context db = new Inventario.DAL.Context();
+}
+
+<h2>Productos</h2>
+
+<p>
+    @Html.ActionLink("Ingresar nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codigoBarra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codigoBarraInterno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.codigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codigoBarra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codigoBarraInterno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.productosID }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.productosID })
+            @if(!db.DetalleDespacho.Any(s=>s.productosID==item.productosID)){
+                <text>
+                 |
+                @Html.ActionLink("Eliminar", "Delete", new { id=item.productosID })
+                </text>
+            }
+</td>
+    </tr>
+}
+
+</table>

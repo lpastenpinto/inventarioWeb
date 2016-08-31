@@ -1,0 +1,104 @@
+﻿@model Inventario.Models.Bodega
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Bodega</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.BodegaID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div id="divNombreNombre">
+                    <div id="divMensaje">
+                        @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+
+                        <div id="mensaje" class="alert alert-danger hidden">
+                            <strong>Error: </strong>ya existe una bodega con ese nombre
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.direccion, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.direccion, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.direccion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ciudad, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ciudad, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ciudad, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+@section Scripts {
+    <script>
+                    $(document).ready(function () {
+
+                        $("#nombre").change(function () {
+                            var nameBodega = $("#nombre").val();
+
+                            $.ajax({
+                                url: "/Bodegas/verificarNameBodega",
+                                data: { "name_bodega": nameBodega },
+                                success: function (retorno) {
+
+                                    console.log("¿Existe codigo? " + retorno);
+
+                                    if (retorno == "true") {
+                                        $('input[type="submit"]').prop('disabled', true);
+                                        $("#divMensaje").addClass(" has-error");
+                                        $("#divMensaje").addClass(" has-feedback");
+                                        $("#divMensaje").removeClass(" has-success");
+
+                                        $("#spanInput").addClass("glyphicon-remove");
+                                        $("#spanInput").removeClass("glyphicon-ok");
+
+                                        $("#mensaje").removeClass("hidden");
+
+                                    }
+                                    else {
+
+                                        $('input[type="submit"]').prop('disabled', false);
+                                        $("#divMensaje").addClass(" has-feedback");
+                                        $("#divMensaje").removeClass(" has-error");
+                                        $("#divMensaje").addClass(" has-success");
+                                        $("#spanInput").addClass("glyphicon-ok");
+                                        $("#spanInput").removeClass("glyphicon-remove");
+
+                                        $("#mensaje").addClass("hidden");
+                                    }
+                                }
+                            });
+                        });
+
+                    });
+    </script>
+}

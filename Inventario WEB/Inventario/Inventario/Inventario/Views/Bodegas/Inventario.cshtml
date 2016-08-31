@@ -1,0 +1,54 @@
+﻿@model List<Inventario.Models.productoBodega>
+@{
+    
+    ViewBag.Title = "Inventario";
+    int BodegaID = ViewBag.BodegaID;
+
+    Inventario.DAL.Context db = new Inventario.DAL.Context();
+
+    Inventario.Models.Bodega bodega = db.Bodegas.Find(BodegaID);
+}
+
+<div class="page-header">
+    <h2>Inventario de Bodega <small>@bodega.nombre</small></h2>
+</div>
+
+<a href="@Url.Action("Create", "productoBodegas", new { idBodega = BodegaID })">Ingresar Nuevo Producto a Bodega</a>
+<br />
+
+<div class="table-responsive">
+    <table class="table table-condensed table-striped">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Cantidad Mínima</th>
+                <th>Cantidad Máxima</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Inventario.Models.productoBodega item in Model)
+            {
+                <tr>
+                    <td>@item.productos.descripcion</td>
+                    <td>@item.cantidadDisponible</td>
+                    <td>@item.cantidadMinima</td>
+                    <td>@item.cantidadMaxima</td>
+                    <td>
+                        <a href="@Url.Action("Edit", "productoBodegas", new { id = item.productoBodegaID })">Editar</a> |
+                        <a href="@Url.Action("Details", "productoBodegas", new { id = item.productoBodegaID })">Detalles</a> |
+                        <a href="@Url.Action("Delete", "productoBodegas", new { id = item.productoBodegaID })">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>        
+    </table>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="modal-footer">
+    <a href="@Url.Action("ActualizarExcel", "Bodegas")">Actualizar Stock de Productos con Archivo Excel</a>
+</div>
+

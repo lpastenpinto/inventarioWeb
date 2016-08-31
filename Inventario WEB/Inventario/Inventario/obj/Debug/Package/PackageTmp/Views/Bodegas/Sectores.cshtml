@@ -1,0 +1,32 @@
+﻿@model Inventario.Models.Bodega
+
+@{
+    ViewBag.Title = "Sectores de Bodega";
+}
+
+<h2>Sectores de Bodega <small>@Model.nombre</small></h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo", "CreateSector", new { id = Model.BodegaID })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (Inventario.Models.sectores item in new Inventario.DAL.Context().Sectores.Where(s=>s.BodegaID==Model.BodegaID)) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "EditSector", new { id=item.sectoresID }) |
+            @Html.ActionLink("Eliminar", "DeleteSector", new { id=item.sectoresID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,153 @@
+﻿@model Inventario.Models.productoBodega
+
+@{
+    ViewBag.Title = "Asignar Producto a Bodega";
+
+    int bodegaID = ViewBag.idBodega;
+    
+}
+
+<h2>Asignar Producto a Bodega</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Datos:</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.productosID, "productosID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("productosID", new SelectList(new Inventario.DAL.Context().productos, "productosID", "descripcion",1),null, htmlAttributes: new { @class = "form-control" })
+                <div id="alert" class="alert-danger hidden col-md-4">El producto ya ha sido ingresado a esta Bodega. Para editarlo debe ir a la sección de Inventario de la Bodega</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.bodegaID, "bodegaID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("bodegaID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.bodegaID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SectorID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="form-control" id="SectorID" name="SectorID">
+                    <option value="-1">Sin sector asignado</option>
+                    @{
+                        List<Inventario.Models.sectores> Sectores = new Inventario.DAL.Context().Sectores.Where(s => s.BodegaID == bodegaID).ToList();
+                    }
+                    @foreach (Inventario.Models.sectores Sector in Sectores)
+                    {
+                            <option value="@Sector.sectoresID">@Sector.nombre</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.cantidadDisponible, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.cantidadDisponible, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.cantidadDisponible, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.cantidadMinima, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.cantidadMinima, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.cantidadMinima, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.cantidadMaxima, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.cantidadMaxima, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.cantidadMaxima, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.costoUnitario, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.costoUnitario, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.costoUnitario, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.alertarStockBajo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.alertarStockBajo)
+                    @Html.ValidationMessageFor(model => model.alertarStockBajo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" id="boton" value="Crear" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Volver", "Index")
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function ()
+        {
+            function verificarDatos()
+            {
+                productoID = $("#productosID").val();
+                bodegaID = $("#bodegaID").val();
+
+                console.log(productoID + " - " + bodegaID);
+
+                $.ajax({
+                    url: "/productoBodegas/existe",
+                    data: {
+                        "productoID": productoID,
+                        "bodegaID":bodegaID
+                        },
+                    success: function (retorno) {
+
+                        console.log("¿Existe? " + retorno);
+
+                        if (retorno == "true") {
+                            $("#alert").removeClass("hidden");
+
+                            $("#boton").attr("disabled", true);
+                        }
+                        else {
+
+                            $("#alert").addClass("hidden");
+                            $("#boton").removeAttr("disabled");
+                        }
+                    }
+                });
+            }
+
+            $("#productosID").change(function ()
+            {
+                verificarDatos();
+            });
+            $("#bodegaID").change(function ()
+            {
+                verificarDatos();
+            });
+
+            verificarDatos();
+        });
+    </script>
+}
